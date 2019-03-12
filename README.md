@@ -1,10 +1,10 @@
 # Icons! Cached!
 
-Can we use the [inline-cache-both](https://www.filamentgroup.com/lab/inlining-cache.html) technique?
+I wrote that inlining your <code>&lt;svg></code> icons makes for <a href="https://css-tricks.com/pretty-good-svg-icon-system/">the best icon system</a>. Scott Jehl wrote that <a href="https://www.filamentgroup.com/lab/inlining-cache.html">just because you inline something doesn't mean you can't cache it</a>. Let's see if Scott's idea can extend to SVG icons.
 
 ## Needs a server...
 
-This works on MacOS:
+This works on macOS:
 
 ```
 php -S localhost:2222
@@ -12,8 +12,12 @@ php -S localhost:2222
 
 Theoretically it works with [GitHub Pages](https://chriscoyier.github.io/inline-or-cache-svg---both/), but it didn't seem to publish when I tried it.
 
-## HERE'S THE PROBLEM THO
+## Build
 
-We're yanking the inline `<svg>` out of the DOM and caching it (which is why it needs that `xmlns="http://www.w3.org/2000/svg"` bit). Then serving it as an `<img>` on the pages that will benefit from the cache. That was just to prove it works, which it does.
+There is a wildly simple build step here:
 
-But ideally, the beneficiary pages don't use `<img>`, they get to use `<svg>` also somehow, because that's way nicer for styling and scripting. **Is there a way to yank code out of cache and inject onto page?** Or reference a cache URL with a `<use href="#">` situation?
+```
+node build/build.js
+```
+
+It's just so that the SVG icons can be included and not duplicated needlessly.

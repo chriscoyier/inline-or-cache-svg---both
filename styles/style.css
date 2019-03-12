@@ -1,3 +1,13 @@
+html {
+  font: 100%/1.4 system-ui;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-weight: 200;
+}
+
 .icon {
   width: 24px;
   height: 24px;
