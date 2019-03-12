@@ -1,0 +1,14 @@
+{
+  "name": "cached-icons",
+  "version": "1.0.0",
+  "description": "Can we use the [inline-cache-both](https://www.filamentgroup.com/lab/inlining-cache.html) technique?",
+  "main": "sw.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nunjucks": "^3.2.0"
+  }
+}

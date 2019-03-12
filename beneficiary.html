@@ -3,15 +3,22 @@
 
 <head>
   <title>Caching</title>
+  <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
 
   <p>This page benefits from the caching, where as <a href="/">this one</a> cached the stuff.</p>
 
-  <img src="/icons/icon-wheelchair.svg" alt="icon of wheelchair">
-  <img src="/icons/icon-cow.svg" alt="icon of cow">
-  <img src="/icons/icon-alarm.svg" alt="icon of alarm">
+  <svg class="icon">
+    <use xlink:href="/icons/icon-wheelchair.svg#icon-wheelchair" /> 
+  </svg>
+  <svg class="icon">
+    <use xlink:href="/icons/icon-cow.svg#icon-cow" /> 
+  </svg>
+  <svg class="icon">
+    <use xlink:href="/icons/icon-alarm.svg#icon-alarm" /> 
+  </svg>
   
 </body>
 

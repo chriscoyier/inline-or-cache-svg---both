@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Caching</title>
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+
+  <p>This page does the caching, whereas <a href="/beneficiary.html">this one</a> benefits from said caching.</p>
+
+  {% include "icons/icon-wheelchair.svg" %}
+
+  {% include "icons/icon-cow.svg" %}
+
+  {% include "icons/icon-alarm.svg" %}
+
+  <script>
+  if ("caches" in window) {
+    const icon1 = document.querySelector(".icon-wheelchair").outerHTML;
+    const icon2 = document.querySelector(".icon-cow").outerHTML;
+    const icon3 = document.querySelector(".icon-alarm").outerHTML;
+    caches.open('static').then(function(cache) {
+      cache.put("/icons/icon-wheelchair.svg", new Response(icon1,
+        { headers: {'Content-Type': 'image/svg+xml'} }
+      ));
+      cache.put("/icons/icon-cow.svg", new Response(icon2,
+        { headers: {'Content-Type': 'image/svg+xml'} }
+      ));
+      cache.put("/icons/icon-alarm.svg", new Response(icon3,
+        { headers: {'Content-Type': 'image/svg+xml'} }
+      ));
+    });
+  }
+
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('/sw.js', {
+      scope: '/'
+    });
+  }
+  </script>
+  
+</body>
+
+</html>
